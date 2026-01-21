@@ -1,5 +1,6 @@
 const NewsItem = ({ title, description, image_url, link }) => {
-  const defaultImage = "https://via.placeholder.com/345x200?text=No+Image";
+  const defaultImage =
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_8xDFnCHxhFWEFzf1GiTIMw9YbI_1YRui0Q&s";
 
   return (
     <div
@@ -7,7 +8,7 @@ const NewsItem = ({ title, description, image_url, link }) => {
       style={{ width: "345px" }}
     >
       <img
-        src={image_url || defaultImage}
+        src={image_url ? image_url : defaultImage}
         className="card-img-top"
         alt={title || "News image"}
         style={{ height: "200px", objectFit: "cover" }}

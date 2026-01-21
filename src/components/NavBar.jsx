@@ -1,4 +1,13 @@
-export const NavBar = () => {
+export const NavBar = ({ setCategory }) => {
+  const categories = [
+    "business",
+    "entertainment",
+    "health",
+    "science",
+    "sports",
+    "technology",
+  ];
+
   return (
     <div>
       <nav
@@ -6,7 +15,11 @@ export const NavBar = () => {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a
+            className="navbar-brand"
+            href="#"
+            onClick={() => setCategory("top")}
+          >
             <span className="badge bg-light text-dark fs-4">News Mag</span>
           </a>
           <button
@@ -14,34 +27,22 @@ export const NavBar = () => {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Features
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Pricing
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">
-                  Disabled
-                </a>
-              </li>
+              {categories.map((cat) => (
+                <li className="nav-item" key={cat}>
+                  <div
+                    className="nav-link"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setCategory(cat)}
+                  >
+                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
