@@ -6,7 +6,6 @@ const NewsBoard = ({ category }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // Note: Ensure the API key is secured in production
     const apikey = "pub_07a1ebfa82514058a2684fcab51d015b";
     const url = `https://newsdata.io/api/1/latest?apikey=${apikey}&category=${category}&language=en`;
 
@@ -16,7 +15,7 @@ const NewsBoard = ({ category }) => {
         setArticles(response.data.results);
       })
       .catch((err) => console.error("Error fetching news:", err));
-  }, [category]); // Re-run when category changes
+  }, [category]);
 
   return (
     <div className="container">
