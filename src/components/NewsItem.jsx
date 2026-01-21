@@ -1,21 +1,38 @@
 const NewsItem = ({ title, description, image_url, link }) => {
+  const defaultImage = "https://via.placeholder.com/345x200?text=No+Image";
+
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div
+      className="card bg-dark text-light mb-3 d-inline-block my-3 mx-3 shadow"
+      style={{ width: "345px" }}
+    >
       <img
-        src={image_url || "https://via.placeholder.com/300"}
+        src={image_url || defaultImage}
         className="card-img-top"
-        alt="news"
+        alt={title || "News image"}
+        style={{ height: "200px", objectFit: "cover" }}
       />
+
       <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
+        <h5 className="card-title">
+          {title
+            ? title.slice(0, 50) + (title.length > 50 ? "..." : "")
+            : "No Title"}
+        </h5>
+
+        <p className="card-text">
+          {description
+            ? description.slice(0, 90) + (description.length > 90 ? "..." : "")
+            : "No description available."}
+        </p>
+
         <a
           href={link}
+          className="btn btn-primary btn-sm"
           target="_blank"
-          rel="noreferrer"
-          className="btn btn-primary"
+          rel="noopener noreferrer"
         >
-          Read More
+          Read More →
         </a>
       </div>
     </div>

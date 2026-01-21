@@ -3,10 +3,10 @@ import NewsBoard from "./components/NewsBoard";
 
 const App = () => {
   return (
-    <div>
+    <>
       <NavBar />
       <NewsBoard />
-    </div>
+    </>
   );
 };
 
