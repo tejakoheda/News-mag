@@ -18,8 +18,8 @@ const NewsBoard = ({ category }) => {
   }, [category]);
 
   return (
-    <div className="container">
-      <h2 className="text-center my-4">
+    <div className="container mt-5 pt-4">
+      <h2 className="text-center my-3">
         Latest{" "}
         <span className="badge bg-danger">{category.toUpperCase()} News</span>
       </h2>

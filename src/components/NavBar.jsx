@@ -11,16 +11,16 @@ export const NavBar = ({ setCategory }) => {
   return (
     <div>
       <nav
-        className="navbar navbar-expand-lg bg-body-tertiary"
+        className="navbar navbar-expand-lg bg-body-tertiary fixed-top"
         data-bs-theme="dark"
       >
-        <div className="container-fluid">
+        <div className="container-fluid ">
           <a
             className="navbar-brand"
             href="#"
             onClick={() => setCategory("top")}
           >
-            <span className="badge bg-light text-dark fs-4">News Mag</span>
+            <span className="badge bg-light text-dark fs-4 ">News Mag</span>
           </a>
           <button
             className="navbar-toggler"
